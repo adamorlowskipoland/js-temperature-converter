@@ -57,6 +57,10 @@ body {
     padding: 2rem;
 }
 
+.output-wrapper {
+    display: flex;
+}
+
 .temp-name {
     font-size: 1.2rem;
     color: seashell;
@@ -65,12 +69,17 @@ body {
     border: none;
     box-shadow: none;
     margin: 1rem auto;
-    display: block;
+    display: inline;
     width: 340px;
+    flex: 9;
 }
 
 .temp-value {
     float: right;
+    font-size: 1.2rem;
+    color: seashell;
+    margin: 1rem auto;
+    flex: 1;
 }
 
 hr {

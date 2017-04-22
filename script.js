@@ -1,38 +1,103 @@
 const model = {
-    "celsius" : document.getElementById('celsius'),
-    "celsiusValue" : document.getElementById('celsiusValue'),
+    "range" : document.getElementById('range'),
+    "startingValue" : document.getElementById('startingValue'),
 
-    "fahrenheit" : document.getElementById('fahrenheitValue'),
-    "kalvin" : document.getElementById('kalvinValue'),
+    "startingValueName" : document.getElementById('startingValueName'),
+    "output1Name" : document.getElementById('output1Name'),
+    "output2Name" : document.getElementById('output2Name'),
+    "output1" : document.getElementById('output1'),
+    "output2" : document.getElementById('output2'),
 }
 
 const operator = {
-    "upDateTempValues" : function(val) {
-        model.celsiusValue.textContent = val;
-    },
+    "setUpForCelsius" : function(val) {
+        const range = document.getElementById('range');
+        range.addEventListener('mousemove', function() {
+            operator.convertFromCelsius(this.value);
+        });
 
-    "convert" : function(val) {
-        model.celsiusValue.textContent = val;
-        model.fahrenheit.textContent = parseInt(val) + 32;;
-        model.kalvin.textContent = parseInt(val) + 273;;
+        model.range.min = "-100";
+        model.range.max = "100";
+        model.range.value = val;
+        model.startingValueName.textContent = "Celsius";
+        model.output1Name.textContent = "Fahrenheit";
+        model.output2Name.textContent = "Kalvin";
+        this.convertFromCelsius(val);
+    },    
+    "setUpForFahrenheit" : function(val) {
+        const range = document.getElementById('range');
+        range.addEventListener('mousemove', function() {
+            operator.convertFromFahrenheit(this.value);
+        });
+
+        model.range.min = "-68";
+        model.range.max = "132";
+        model.range.value = val;
+        model.startingValueName.textContent = "Fahrenheit";
+        model.output1Name.textContent = "Celsius";
+        model.output2Name.textContent = "Kalvin";
+        this.convertFromFahrenheit(val);
+    },
+    "setUpForKalvin" : function(val) {
+        const range = document.getElementById('range');
+        range.addEventListener('mousemove', function() {
+            operator.convertFromKalvin(this.value);
+        });
+
+        model.range.min = "173";
+        model.range.max = "373";
+        model.range.value = val;
+        model.startingValueName.textContent = "Kalvin";
+        model.output1Name.textContent = "Fahrenheit";
+        model.output2Name.textContent = "Celsius";
+        this.convertFromKalvin(val);
+    },
+    "convertFromCelsius" : function(val) {
+        model.startingValue.textContent = val;
+        model.output1.textContent = parseInt(val) + 32;
+        model.output2.textContent = parseInt(val) + 273;
+    },
+    "convertFromFahrenheit" : function(val) {
+        model.startingValue.textContent = val;
+        model.output1.textContent = parseInt(val) + 32;
+        model.output2.textContent = parseInt(val) + 305;
+    },
+    "convertFromKalvin" : function(val) {
+        model.startingValue.textContent = val;
+        model.output1.textContent = parseInt(val) - 241;
+        model.output2.textContent = parseInt(val) - 273;
+    },
+    "removeActiveClass" : function(arr) {
+        const btns = Array.from(document.getElementsByClassName('btn'));
+        btns.forEach(btn => btn.classList.remove('btn-active'));
     },
     "eventListeners" : function() {
-        const celsiusRange = document.getElementById('celsius');
-        celsiusRange.addEventListener('mousemove', function() {
-            operator.convert(this.value);
+        const celsiusBtn = document.getElementById('celsiusBtn');
+        celsiusBtn.addEventListener('click', function() {
+            operator.removeActiveClass();
+            this.classList.add('btn-active');
+            operator.setUpForCelsius(0);
         });
-        const btns = Array.from(document.getElementsByClassName('btn'));
-        btns.forEach(btn => btn.addEventListener('click', function() {
-            btns.forEach(btn => btn.classList.remove('btn-active'));
-            btn.classList.add('btn-active');
-        }));
+        const fahrenheitBtn = document.getElementById('fahrenheitBtn');
+        fahrenheitBtn.addEventListener('click', function() {
+            operator.removeActiveClass();
+            this.classList.add('btn-active');
+            operator.setUpForFahrenheit(-32);
+        });
+        const kalvinBtn = document.getElementById('kalvinBtn');
+        kalvinBtn.addEventListener('click', function() {
+            operator.removeActiveClass();
+            this.classList.add('btn-active');
+            operator.setUpForKalvin(273);          
+        });
     }
 }
 
 const view = {
     "initDisplay" : function() {
+        operator.setUpForCelsius(0);
+        operator.convertFromCelsius(0);
         operator.eventListeners();
-        operator.convert(0);
     }
 }
 

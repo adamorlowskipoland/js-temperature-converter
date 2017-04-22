@@ -11,20 +11,26 @@
     <div class="wrapper">
         <h2 class="title">Temperature Converter</h2>
         <div class="btn-wrapper">
-            <button class="btn btn-active">Celsius</button>
-            <button class="btn">Fahrenheit</button>
-            <button class="btn">Kalvin</button>
+            <button class="btn btn-active" id="celsiusBtn">Celsius</button>
+            <button class="btn" id="fahrenheitBtn">Fahrenheit</button>
+            <button class="btn" id="kalvinBtn">Kalvin</button>
         </div>
 
         <form action="" class="form" id="form">
-            <input type="range" min="-100" max="100" value="0" id="celsius" class="input" placeholder="Put temp in celsius">
-            <h3 class="temp-name">Celsius<span class="temp-value" id="celsiusValue"></span></h3>
-
+            <input type="range" min="" max="" value="" id="range" class="input">
+            <div class="output-wrapper">
+                <h3 class="temp-name" id="startingValueName"></h3>
+                <span class="temp-value" id="startingValue"></span>
+            </div>
             <hr>
-
-            <h3 class="temp-name">Fahrenheit<span class="temp-value" id="fahrenheitValue"></span></h3>
-
-            <h3 class="temp-name">Kalvin<span class="temp-value" id="kalvinValue"></span></h3>
+            <div class="output-wrapper">
+                <h3 class="temp-name" id="output1Name"></h3>
+                <span class="temp-value" id="output1"></span>
+            </div>
+            <div class="output-wrapper">
+                <h3 class="temp-name" id="output2Name"></h3>
+                <span class="temp-value" id="output2"></span>
+            </div>
         </form>
     </div>
     <script src="script.js"></script>
