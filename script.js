@@ -21,6 +21,11 @@ const operator = {
         celsiusRange.addEventListener('mousemove', function() {
             operator.convert(this.value);
         });
+        const btns = Array.from(document.getElementsByClassName('btn'));
+        btns.forEach(btn => btn.addEventListener('click', function() {
+            btns.forEach(btn => btn.classList.remove('btn-active'));
+            btn.classList.add('btn-active');
+        }));
     }
 }
 
