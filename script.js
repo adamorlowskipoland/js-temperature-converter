@@ -15,6 +15,9 @@ const operator = {
         range.addEventListener('mousemove', function() {
             operator.convertFromCelsius(this.value);
         });
+        range.addEventListener('change', function() {
+            operator.convertFromCelsius(this.value);
+        });
 
         model.range.min = "-100";
         model.range.max = "100";
@@ -29,6 +32,9 @@ const operator = {
         range.addEventListener('mousemove', function() {
             operator.convertFromFahrenheit(this.value);
         });
+        range.addEventListener('change', function() {
+            operator.convertFromFahrenheit(this.value);
+        });
 
         model.range.min = "-148";
         model.range.max = "212";
@@ -41,6 +47,9 @@ const operator = {
     "setUpForKalvin" : function(val) {
         const range = document.getElementById('range');
         range.addEventListener('mousemove', function() {
+            operator.convertFromKalvin(this.value);
+        });
+        range.addEventListener('change', function() {
             operator.convertFromKalvin(this.value);
         });
 
