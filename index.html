@@ -12,9 +12,13 @@
         <h2 class="title">Temperature Converter</h2>
         <form action="" class="form" id="form">
             <input type="range" min="-273" max="100" value="0" id="celsius" class="input" placeholder="Put temp in celsius">
+            <input type="number" id="celsiusValue" class="input" readonly>
             <button type="submit" class="btn">convert</button>
+
             <h3 class="result">Result in Fahrenheit</h3>
             <input type="number" id="fahrenheit" class="input" readonly>
+            <h3 class="result">Result in Kalvin</h3>
+            <input type="number" id="kalvin" class="input" readonly>
         </form>
     </div>
     <script src="script.js"></script>
