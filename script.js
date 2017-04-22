@@ -2,34 +2,24 @@ const model = {
     "celsius" : document.getElementById('celsius'),
     "celsiusValue" : document.getElementById('celsiusValue'),
 
-    "fahrenheit" : document.getElementById('fahrenheit'),
-    "kalvin" : document.getElementById('kalvin'),
+    "fahrenheit" : document.getElementById('fahrenheitValue'),
+    "kalvin" : document.getElementById('kalvinValue'),
 }
 
 const operator = {
-    "upDateCelsiusValue" : function(val) {
-        model.celsiusValue.value = val;
+    "upDateTempValues" : function(val) {
+        model.celsiusValue.textContent = val;
     },
 
-    "convert" : function() {
-        var celsiusValue = model.celsius.value;
-        var fahrenheitValue = parseInt(celsiusValue) + 32;
-        var kalvinValue = parseInt(celsiusValue) + 273;
-
-        model.fahrenheit.value = fahrenheitValue;
-        model.kalvin.value = kalvinValue;
-        console.log(celsiusValue, fahrenheitValue, kalvinValue);
+    "convert" : function(val) {
+        model.celsiusValue.textContent = val;
+        model.fahrenheit.textContent = parseInt(val) + 32;;
+        model.kalvin.textContent = parseInt(val) + 273;;
     },
     "eventListeners" : function() {
-        const form = document.getElementById('form');
-        form.addEventListener('submit', function(e) {
-            e.preventDefault();
-            operator.convert()
-        });
         const celsiusRange = document.getElementById('celsius');
         celsiusRange.addEventListener('mousemove', function() {
-            operator.upDateCelsiusValue(this.value);
-            console.log(this.value);
+            operator.convert(this.value);
         });
     }
 }
@@ -37,6 +27,7 @@ const operator = {
 const view = {
     "initDisplay" : function() {
         operator.eventListeners();
+        operator.convert(0);
     }
 }
 
