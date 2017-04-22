@@ -10,8 +10,14 @@
 <body>
     <div class="wrapper">
         <h2 class="title">Temperature Converter</h2>
+        <div class="btn-wrapper">
+            <button class="btn btn-active">Celsius</button>
+            <button class="btn">Fahrenheit</button>
+            <button class="btn">Kalvin</button>
+        </div>
+
         <form action="" class="form" id="form">
-            <input type="range" min="-273" max="100" value="0" id="celsius" class="input" placeholder="Put temp in celsius">
+            <input type="range" min="-100" max="100" value="0" id="celsius" class="input" placeholder="Put temp in celsius">
             <h3 class="temp-name">Celsius<span class="temp-value" id="celsiusValue"></span></h3>
 
             <hr>

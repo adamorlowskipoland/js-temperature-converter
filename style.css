@@ -21,6 +21,35 @@ body {
     margin: 4rem auto;
 }
 
+.btn-wrapper {
+    width: 440px;
+    margin: 0 auto;
+    display: flex;
+}
+.btn {
+    text-transform: uppercase;
+    margin: 0 20px;
+    flex: 1;
+    letter-spacing: 2px;
+    font-size: 12px;
+    padding: 8px 0;
+    border: none;
+    color: black;
+    cursor: pointer;
+    background: #efdab3; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#efdab3 80%, #ffb224); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#efdab3 80%, #ffb224); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#efdab3 80%, #ffb224); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#efdab3 80%, #ffb224); /* Standard syntax */
+}
+.btn-active {
+    background: #ffb224; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(#f3cf8c, #ffb224); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(#f3cf8c, #ffb224); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(#f3cf8c, #ffb224); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(#f3cf8c, #ffb224); /* Standard syntax */
+}
+
 .form {
     border: 1px solid orange;
     width: 440px;
