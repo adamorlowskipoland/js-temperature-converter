@@ -42,6 +42,7 @@ body {
     background: -moz-linear-gradient(#efdab3 80%, #ffb224); /* For Firefox 3.6 to 15 */
     background: linear-gradient(#efdab3 80%, #ffb224); /* Standard syntax */
 }
+
 .btn-active {
     background: #ffb224; /* For browsers that do not support gradients */
     background: -webkit-linear-gradient(#f3cf8c, #ffb224); /* For Safari 5.1 to 6.0 */
