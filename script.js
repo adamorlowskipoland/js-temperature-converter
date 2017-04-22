@@ -30,8 +30,8 @@ const operator = {
             operator.convertFromFahrenheit(this.value);
         });
 
-        model.range.min = "-68";
-        model.range.max = "132";
+        model.range.min = "-148";
+        model.range.max = "212";
         model.range.value = val;
         model.startingValueName.textContent = "Fahrenheit";
         model.output1Name.textContent = "Celsius";
@@ -54,17 +54,21 @@ const operator = {
     },
     "convertFromCelsius" : function(val) {
         model.startingValue.textContent = val;
-        model.output1.textContent = parseInt(val) + 32;
+        var farVal = Math.round(9/5 * parseInt(val) + 32);
+        model.output1.textContent = farVal;
         model.output2.textContent = parseInt(val) + 273;
     },
     "convertFromFahrenheit" : function(val) {
         model.startingValue.textContent = val;
-        model.output1.textContent = parseInt(val) + 32;
-        model.output2.textContent = parseInt(val) + 305;
+        var celVal = Math.round((5/9) * (parseInt(val) -32));
+        var kalVal = Math.round(((5/9) * (parseInt(val) -32) + 273));
+        model.output1.textContent = celVal;
+        model.output2.textContent = kalVal;
     },
     "convertFromKalvin" : function(val) {
         model.startingValue.textContent = val;
-        model.output1.textContent = parseInt(val) - 241;
+        var farVal = Math.round(9/5 * (parseInt(val) - 273) + 32);
+        model.output1.textContent = farVal;
         model.output2.textContent = parseInt(val) - 273;
     },
     "removeActiveClass" : function(arr) {
@@ -82,7 +86,7 @@ const operator = {
         fahrenheitBtn.addEventListener('click', function() {
             operator.removeActiveClass();
             this.classList.add('btn-active');
-            operator.setUpForFahrenheit(-32);
+            operator.setUpForFahrenheit(32);
         });
         const kalvinBtn = document.getElementById('kalvinBtn');
         kalvinBtn.addEventListener('click', function() {
